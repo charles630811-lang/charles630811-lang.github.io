@@ -11,6 +11,7 @@
 
 - 個人官網：https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB
 - 星火聯播網：https://lianbo-net.app.workbuddy.host/?sharecode=EWVMECBXGX
+- 官網「我存下來的」專區：影片、網址與開源專案的重點摘記，只留標題、出處與連結，預設收合、點開才展開。https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB#curation
 
 本頁只做介紹與導引，不收單、不裝追蹤程式、不載入外部資源。
 
