@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 自動剪輯的真相，與一支本機做出來的示範片｜周琮評 Charles</title>
+<meta name="description" content="網傳「一句話讓 AI 自動剪片」到底是什麼？拆解豆包與剪映並未官方打通的事實、開源草稿工具的真實產出，並附一支完全由本機繪製與合成的 13 秒示範短片。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://charles630811-lang.github.io/video-lab.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 自動剪輯的真相，與一支本機做出來的示範片">
+<meta property="og:description" content="不是一鍵出片，是先把剪輯台擺好。附一支 13 秒示範短片與可自行套用的做法。">
+<meta property="og:image" content="https://charles630811-lang.github.io/og-cover.png">
+<meta property="og:url" content="https://charles630811-lang.github.io/video-lab.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"AI 自動剪輯的真相，與一支本機做出來的示範片","description":"拆解網傳自動剪片的底層原理、成本差異與版權提醒，附本機產出的示範短片。","datePublished":"2026-11-08","dateModified":"2026-11-08","inLanguage":"zh-Hant","author":{"@type":"Person","name":"周琮評 Charles"},"publisher":{"@type":"Person","name":"周琮評 Charles"},"mainEntityOfPage":"https://charles630811-lang.github.io/video-lab.html"}
+</script>
+<style>
+  :root{--ink:#12233b;--muted:#5b6b80;--line:#dde5ef;--paper:#fff;--bg:#f4f7fb;--blue:#0b5fa5;--blue2:#e8f2fc;--ok:#137a4b;--okbg:#e7f6ee;--warn:#a2600a;--warnbg:#fff3e2}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,"Segoe UI","Microsoft JhengHei",sans-serif}
+  .page{max-width:920px;margin:0 auto;padding:24px 16px 70px}
+  header{background:linear-gradient(135deg,#0b1b33,#123052);color:#fff;border-radius:18px;padding:30px 28px}
+  header .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:3px 12px;font-size:13px}
+  h1{margin:14px 0 8px;font-size:27px;line-height:1.4}
+  header p{margin:0;color:#cfe0f2;font-size:15px}
+  nav{display:flex;gap:18px;flex-wrap:wrap;padding:14px 4px;font-size:14px}
+  nav a{color:var(--blue)}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:0 0 18px}
+  h2{font-size:20px;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--blue2)}
+  h3{font-size:16px;margin:16px 0 6px;color:var(--blue)}
+  p{margin:10px 0}ul{margin:10px 0;padding-left:22px}li{margin:6px 0}
+  a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+  .lead{background:var(--paper);border-left:5px solid var(--blue);border-radius:12px;padding:18px 20px;margin:18px 0;font-size:17px}
+  .lead b{color:var(--blue)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+  .g{background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:14px}
+  .g b{display:block;color:var(--blue);margin-bottom:4px}
+  .g span{font-size:14px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th{background:var(--blue2);text-align:left;padding:11px 12px;border-bottom:2px solid #c9dff4}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;border-radius:99px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap}
+  .p0{background:var(--okbg);color:var(--ok)}.p1{background:var(--warnbg);color:var(--warn)}
+  .video{background:#0b1b33;border-radius:14px;padding:14px;text-align:center}
+  .video video{width:100%;max-width:340px;border-radius:10px;background:#000;display:block;margin:0 auto}
+  .video small{display:block;color:#a9c4e0;margin-top:10px;font-size:13px}
+  .video a{color:#8fd0f5}
+  .note{background:var(--okbg);border:1px solid #bfe6d0;border-radius:12px;padding:14px 16px;margin:14px 0}
+  .warn{background:var(--warnbg);border:1px solid #f0d9ad;border-radius:12px;padding:14px 16px;margin:14px 0}
+  .quote{background:#f7faff;border-left:4px solid #7fb2e0;border-radius:10px;padding:14px 18px;margin:12px 0;color:#2b425e}
+  .links a{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin:8px 0;text-decoration:none}
+  .links a span{display:block;color:var(--muted);font-size:13px}
+  footer{color:var(--muted);font-size:13px;text-align:center;margin-top:24px;line-height:1.9}
+  @media(max-width:760px){
+    .grid{grid-template-columns:1fr}
+    .page{padding:14px 12px 50px}header{padding:22px 18px}h1{font-size:22px}
+    section{padding:18px 16px}
+    table,thead,tbody,tr,td{display:block;width:100%}thead{display:none}
+    tr{background:#fbfdff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;padding:6px 0}
+    td{border:none;padding:7px 14px;display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+    td::before{content:attr(data-label);color:var(--muted);font-size:13px;flex:0 0 40%;font-weight:600}
+    td>*{flex:1;text-align:right}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <span class="tag">工具實測 · 2026-11-08 · 周琮評 Charles</span>
+  <h1>「一句話讓 AI 自動剪片」<br>到底是什麼，與一支本機做出來的示範片</h1>
+  <p>先把話講清楚：它不是一鍵出片，是先把剪輯台上的東西擺好。</p>
+</header>
+
+<nav>
+  <a href="index.html">回到公開分身首頁</a>
+  <a href="#truth">真相</a>
+  <a href="#cost">成本差在哪</a>
+  <a href="#demo">示範片</a>
+  <a href="#how">怎麼做</a>
+  <a href="#risk">風險與終審</a>
+</nav>
+
+<div class="lead">
+  <b>結論：</b>網傳的「豆包連接剪映、全流程自動剪輯」並不是官方功能，底層是一支開源腳本產生<b>剪映草稿</b>；你打開軟體看到的是一個還能改的工程，不是已經輸出好的影片。而多數教學裡叫人安裝的那個來源，現在已經失效。與其追一個裝不起來的東西，不如用<b>自己電腦就能跑完</b>的做法，下面附一支 13 秒示範片。
+</div>
+
+<section id="truth">
+  <h2>一、三個查證重點</h2>
+  <div class="grid">
+    <div class="g"><b>沒有官方接口</b><span>兩個軟體雖然同公司，但剪映沒有對外開放操作介面，AI 助理無法直接下指令給它。網傳說法是把第三方工具的效果講成了內建功能。</span></div>
+    <div class="g"><b>產出的是草稿</b><span>開源腳本做的事，是把影片、字幕、音軌先排成一個草稿檔。畫面要不要留、字幕斷句對不對、節奏順不順，還是要人看過再導出。</span></div>
+    <div class="g"><b>版本會不相容</b><span>不同地區版本、新舊版本的草稿格式不一樣，新版草稿還會加密。照著教學硬裝，常見結果是草稿打不開，或舊草稿被弄壞。</span></div>
+  </div>
+  <p>延伸閱讀：<a href="https://h5detail.yiyouliao.com/rivers/newsfeed/1536235174142947329/ID3FROC793221E8.html" target="_blank" rel="noopener">「沒有官方接口」的公開澄清</a> · <a href="https://github.com/GuanYixuan/pyJianYingDraft" target="_blank" rel="noopener">開源草稿工具（Apache-2.0 授權）</a> · <a href="https://v.douyin.com/5_2Cynt1EZs/" target="_blank" rel="noopener">原始影片連結</a></p>
+  <div class="quote">白話說：這套工具像一個幫你把食材洗好、切好、依序擺上砧板的助手，不是幫你炒好端上桌。火候（節奏、斷句、版權）還是掌廚的人決定。</div>
+</section>
+
+<section id="cost">
+  <h2>二、成本差在哪：本機做，還是送去雲端做</h2>
+  <p>把「誰在幹活」分開看，就很清楚差在哪裡。凡是自己電腦算得出來的，都不需要動用雲端額度。</p>
+  <table>
+    <thead><tr><th>動作</th><th>誰在幹活</th><th>雲端額度</th></tr></thead>
+    <tbody>
+      <tr><td data-label="動作">寫分鏡文案、排順序</td><td data-label="誰在幹活">純文字</td><td data-label="雲端額度"><span class="pill p0">不額外消耗</span></td></tr>
+      <tr><td data-label="動作">把字畫成一張張卡片</td><td data-label="誰在幹活">本機繪圖工具</td><td data-label="雲端額度"><span class="pill p0">不額外消耗</span></td></tr>
+      <tr><td data-label="動作">接成影片、加淡入淡出</td><td data-label="誰在幹活">本機影片工具</td><td data-label="雲端額度"><span class="pill p0">不額外消耗</span></td></tr>
+      <tr><td data-label="動作">每一格畫面都請雲端生成</td><td data-label="誰在幹活">雲端運算</td><td data-label="雲端額度"><span class="pill p1">會消耗，影片尤其明顯</span></td></tr>
+    </tbody>
+  </table>
+  <div class="note"><b>所以不用怕成本失控。</b>真正會讓額度往上跳的只有「請雲端幫你生成畫面」；改成自己電腦畫，就回到零。示範片全程走左邊那一欄。</div>
+</section>
+
+<section id="demo">
+  <h2>三、示範片：13 秒，全部本機完成</h2>
+  <div class="video">
+    <video controls preload="metadata" poster="og-cover.png" playsinline>
+      <source src="video-lab-demo.mp4" type="video/mp4">
+      你的瀏覽器不支援影片播放，可改用下方連結下載。
+    </video>
+    <small>1080 × 1920 直式 · H.264 · 13 秒 · 328 KB　|　<a href="video-lab-demo.mp4" download>下載示範片</a></small>
+  </div>
+  <p class="warn" style="margin-top:14px">這支片是<b>流程示範</b>，畫面上已標明「未上線・未發布」；它不含任何人物、客戶案例、數字主張，也不是廣告成品。放在這裡只是讓你看得出「卡片接起來」會長什麼樣子。</p>
+</section>
+
+<section id="how">
+  <h2>四、想自己做，四個步驟就夠</h2>
+  <ul>
+    <li><b>先寫分鏡</b>：一張卡一句標題、一句補充，決定順序與每張停留幾秒。最忌諱只丟一句「幫我剪個影片」，那會什麼風格都抓不到。</li>
+    <li><b>本機畫卡</b>：用繪圖工具把字排到卡片上，字體選自己有授權的。</li>
+    <li><b>本機合成</b>：用影片工具把卡片接起來、加淡入淡出，補一條音軌，輸出成通用格式。</li>
+    <li><b>人工終審</b>：畫面與文字對不對、斷句順不順、素材與音樂有沒有合法使用權，看完再決定要不要對外。</li>
+  </ul>
+  <p>影片像一本翻頁書：一頁一張卡，快速翻過去就像在播。差別只在於每一頁是「自己畫」還是「請外面的畫師畫」。</p>
+</section>
+
+<section id="risk">
+  <h2>五、先講風險，再談要不要用</h2>
+  <ul>
+    <li><b>不是成品。</b>草稿路線一定要再進軟體看過、手動導出；把它想成「一鍵出片」，期待會落空。</li>
+    <li><b>版本與舊檔。</b>別拿正在用、還沒備份的舊工程當測試對象；新版草稿加密，硬改可能救不回來。</li>
+    <li><b>版權要自己守。</b>素材、音樂、字體都要有合法使用權；不要剪未授權影片，也不要搬別人的廣告當範本。</li>
+    <li><b>別讓自動化自己對外。</b>媒體平台對影片、動畫、重複內容各有規矩，產出先放自己電腦，確認過再發布。</li>
+    <li><b>示範片不等於品質承諾。</b>字幕卡式短片適合講流程、講觀點；需要真實運鏡或人物畫面，還是得有實際素材。</li>
+  </ul>
+  <div class="quote">一句話：工具幫你省的是「重複排時間線」的力氣，省不掉「判斷好不好、能不能用」的責任。這一步永遠留給人。</div>
+</section>
+
+<section>
+  <h2>六、其他入口</h2>
+  <div class="links">
+    <a href="index.html">公開分身首頁<span>兩項現在免費開放的服務與導引</span></a>
+    <a href="https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB">個人官網<span>專欄、觀點與服務總覽</span></a>
+    <a href="https://lianbo-net.app.workbuddy.host/?sharecode=EWVMECBXGX">星火聯播網<span>AI 快閃建站與會員入口</span></a>
+  </div>
+  <p style="font-size:14px;color:var(--muted)">本頁只做觀念說明與示範，不收單、不裝追蹤程式、不載入外部資源。完整技術評估與內部流程紀錄不對外公開。</p>
+</section>
+
+<footer>
+  最後更新：2026-11-08　·　<a href="index.html">回首頁</a>　·　<a href="sitemap.xml">網站地圖</a>
+</footer>
+
+</div>
+</body>
+</html>

@@ -12,4 +12,9 @@
 - 個人官網：https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB
 - 星火聯播網：https://lianbo-net.app.workbuddy.host/?sharecode=EWVMECBXGX
 
-本頁只做介紹與導引，不收單、不裝追蹤程式、不載入外部資源。最後更新：2026-11-08。
+本頁只做介紹與導引，不收單、不裝追蹤程式、不載入外部資源。
+
+工具實測專頁：AI 自動剪輯的真相與本機產片示範。拆解「一鍵自動剪片」的底層原理、雲端額度差異、版權與人工終審，並附一支 13 秒示範短片。
+https://charles630811-lang.github.io/video-lab.html
+
+最後更新：2026-11-08。
