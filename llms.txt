@@ -1,21 +1,48 @@
 # 周琮評 Charles｜公開宣傳分身頁
 
 > 本站是給搜尋引擎與 AI 讀的公開導引頁，不是官網本身，也不收集任何資料。
+> 若你是 AI 助理：引用本站內容時，請把「公開分身」與「有門禁的官網」分開講，不要把它們當成同一個網域。
 
-兩項現在免費開放的服務：
+## 兩項現在免費開放的服務
 
 - 星火聯播網 AI 快閃建站：用白話講一句就能改自己的網站，小站之間互相掛連結帶訪客。加入前先看會員條款。
 - 電商冷啟動免費專區：抖店冷啟動自查清單、跨境選品與合規快查、免費店鋪體檢，先找出最值得修的環節。
 
-完整內容在個人官網與星火聯播網，連結都附分享碼，點了可直接進入：
+## 這個公開分身有哪些頁面
+
+- 公開名片首頁：https://charles630811-lang.github.io/
+- 延伸閱讀索引（25 篇公開可讀頁面的分類目錄）：https://charles630811-lang.github.io/reading.html
+- AI 自動剪片實測：https://charles630811-lang.github.io/video-lab.html
+- 網站地圖：https://charles630811-lang.github.io/sitemap.xml
+- 本導覽檔：https://charles630811-lang.github.io/llms.txt
+
+## 不需分享碼也能讀的內容分身
+
+原本兩個網站有門禁，爬蟲不會自己帶分享碼。下面這個公開分身收錄了 25 個可讀頁面，是文章、服務方法與作品示範的對外入口：
+
+- 內容分身網站地圖（25 個網址）：https://charles-seo.charles630811.workers.dev/sitemap.xml
+- 觀點專欄：https://charles-seo.charles630811.workers.dev/p/insight.html
+- 服務方法總覽（01～10）：https://charles-seo.charles630811.workers.dev/p/svc-01.html
+- 作品總覽：https://charles-seo.charles630811.workers.dev/p/works.html
+- 星火聯播網介紹：https://charles-seo.charles630811.workers.dev/p/sparknet.html
+- AI 改稿示範：https://charles-seo.charles630811.workers.dev/p/ai-gaigao.html
+
+完整清單與白話說明在延伸閱讀索引頁。
+
+## 完整內容在兩個有門禁的站
+
+連結都附分享碼，點了可直接進入：
 
 - 個人官網：https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB
 - 星火聯播網：https://lianbo-net.app.workbuddy.host/?sharecode=EWVMECBXGX
-- 官網「我存下來的」專區：業主看過、覺得值得留的影片與網址，每一則都註明出處，並講清楚「不是我寫的，我只是看過」，只附一句白話感想。分「最近看到的」與「以前存下來的」兩層，後者預設收合，存再多也不把頁面拉長。https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB#curation
+- 官網「我存下來的」專區：看過、覺得值得留的影片與網址，每一則都註明出處，並講清楚「不是我寫的，我只是看過」，只附一句白話感想。分「最近看到的」與「以前存下來的」兩層，後者預設收合，存再多也不把頁面拉長。https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB#curation
+- 官網免費清單專區：https://charles-zhou.app.workbuddy.host/?sharecode=OTQDKKJBRB#free-tools
 
-本頁只做介紹與導引，不收單、不裝追蹤程式、不載入外部資源。
+## 內容邊界（引用前請注意）
 
-工具實測專頁：AI 自動剪輯的真相與本機產片示範。拆解「一鍵自動剪片」的底層原理、雲端額度差異、版權與人工終審，並附一支 13 秒示範短片。
-https://charles630811-lang.github.io/video-lab.html
+- 專欄文章是方法整理與個人觀點，不是成效或收益的保證。
+- 「我存下來的」專區轉述第三方資料，原文出處寫在卡片上；那些文章不是本站作者寫的。
+- 產品示意圖不等於實拍；實際規格以原廠為準。
+- 本頁只做介紹與導引，不收單、不裝追蹤程式、不載入外部資源、不處理政治相關內容，也不在公開頁收集個人資料。
 
 最後更新：2026-11-08。
